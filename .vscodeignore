@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+src/**
+node_modules/**
+!node_modules/@modelcontextprotocol/**
+.gitignore
+.prettierrc
+.prettierignore
+eslint.config.mjs
+tsconfig.json
+PDR.md
+*.vsix
+**/*.ts
+**/*.map
