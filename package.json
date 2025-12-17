@@ -4,6 +4,10 @@
   "description": "MCP server for selected folder paths in Explorer",
   "version": "1.0.0",
   "publisher": "minitap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minitap/aiops-extension"
+  },
   "engines": {
     "vscode": "^1.99.0"
   },
