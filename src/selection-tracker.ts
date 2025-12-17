@@ -15,12 +15,9 @@ export class SelectionTracker {
     // so we use a command-based approach as fallback
 
     // Register command to manually capture selection
-    const captureCommand = vscode.commands.registerCommand(
-      "aiops.captureSelection",
-      async () => {
-        await this.captureCurrentSelection();
-      }
-    );
+    const captureCommand = vscode.commands.registerCommand("aiops.captureSelection", async () => {
+      await this.captureCurrentSelection();
+    });
     this.disposables.push(captureCommand);
 
     // Listen to active editor changes as a proxy for selection activity
@@ -33,9 +30,8 @@ export class SelectionTracker {
   async captureCurrentSelection(): Promise<void> {
     // Get the currently selected resources in Explorer via command
     try {
-      const selectedUris = await vscode.commands.executeCommand<vscode.Uri[]>(
-        "explorer.getSelection"
-      );
+      const selectedUris =
+        await vscode.commands.executeCommand<vscode.Uri[]>("explorer.getSelection");
 
       if (selectedUris && Array.isArray(selectedUris)) {
         this.updateSelectionFromUris(selectedUris);
