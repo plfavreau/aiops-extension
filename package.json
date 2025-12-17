@@ -1,0 +1,55 @@
+{
+  "name": "aiops-tools",
+  "displayName": "AIOPS Tools",
+  "description": "MCP server for selected folder paths in Explorer",
+  "version": "1.0.0",
+  "publisher": "minitap",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "AIOPS Tools",
+      "properties": {
+        "aiops-tools.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the AIOPS Tools MCP server"
+        },
+        "aiops-tools.port": {
+          "type": "number",
+          "default": 8765,
+          "description": "Port for the MCP HTTP server"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "aiops.captureSelection",
+        "title": "AIOPS: Capture Current Selection"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.99.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.5.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
